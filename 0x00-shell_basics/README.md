@@ -1,2 +1,2 @@
 #!/bin/bash
-readme
+This script shows the directory path
