@@ -1,2 +1,11 @@
 #!/bin/bash
-echo $(echo $PATH | wc -l | tr -d ' ')
+
+count=0
+for dir in $PATH; do
+  if [ -d "$dir" ]; then
+    count=$((count + 1))
+  fi
+done
+
+echo "$count"
+
