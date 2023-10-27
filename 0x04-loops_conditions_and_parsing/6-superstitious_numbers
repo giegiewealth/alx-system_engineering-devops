@@ -1,22 +1,15 @@
 #!/usr/bin/env bash
+# script that loops from 1 to 10
 
-count=1
+i=1
 
-while [ $count -le 20 ]; do
-    case $count in
-        4)
-            echo "$count and then bad luck from China"
-            ;;
-        9)
-            echo "$count and then bad luck from Japan"
-            ;;
-        17)
-            echo "$count and then bad luck from Italy"
-            ;;
-        *)
-            echo $count
-            ;;
-    esac
-    ((count++))
+while [ $i -le 10 ]; do
+	if [ $i -eq 4 ]; then
+		echo "bad luck"
+	elif [ $i -eq 8 ]; then
+		echo "good luck"
+	else
+		echo "Best School"
+	fi
+	((i++))
 done
-
