@@ -1,1 +1,1 @@
-new ssh project
+new ssh projet
