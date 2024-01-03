@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Push from client a file
+apt-get update
+apt-get -y install nginx
+ufw allow 'Nginx HTTP'
+echo "Hello World!"
+/etc/init.d/nginx start
