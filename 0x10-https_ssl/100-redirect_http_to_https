@@ -1,5 +1,5 @@
-
-bal
+#!/usr/bin/env bash
+global
         log /dev/log    local0
         log /dev/log    local1 notice
         chroot /var/lib/haproxy
@@ -37,13 +37,13 @@ defaults
 #--munyasi.tech-params-begin--
 backend munyasi.tech-backend
         balance roundrobin
-        redirect scheme https if !{ ssl_fc }
+        redirect scheme https if ! "ssl_fc"
         server 20639-web-01 3.227.217.150:80 check
         server 20639-web-02 3.95.27.202:80 check
 
 frontend www-http-munyasi.tech-frontend
-        bind *:80
-        bind *:443 ssl crt /etc/haproxy/certs/munyasi.tech.pem
+        bind ./*:80
+        bind ./*:443 ssl crt /etc/haproxy/certs/munyasi.tech.pem
         acl letsencrypt-acl path_beg /.well-known/acme-challenge/
         # reqadd X-Forwarded-Proto:\ http
         default_backend munyasi.tech-backend
